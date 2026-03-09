@@ -48,7 +48,7 @@ export default function App() {
       setUsers(USERS);
       setLoading(false);
     }, 1000);
-  });
+  }, []);
 
   // TODO 2: What does this do? When does it recalculate?
   const filtered = users.filter((u) =>
