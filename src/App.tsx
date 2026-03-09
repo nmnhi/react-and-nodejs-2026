@@ -1,26 +1,26 @@
-import { AuthProvider } from "./context/AuthProvider";
-import { useAuth } from "./context/useAuth";
-import Dashboard from "./pages/Dashboard";
-import LoginPage from "./pages/LoginPage";
+// import { AuthProvider } from "./context/AuthProvider";
+// import { useAuth } from "./context/useAuth";
+// import Dashboard from "./pages/Dashboard";
+// import LoginPage from "./pages/LoginPage";
+import RefExamples from "./hooks/useRef-examples/RefExamples";
+import HooksDemo from "./pages/HooksDemo";
 
-// Protected routing lives here — reads auth state, shows the right page
-function AppContent() {
-  const { state } = useAuth();
+// function AppContent() {
+//   const { state } = useAuth();
+//   if (state.isLoading) return <p style={{ padding: 32 }}>Loading...</p>;
+//   return state.isAuthenticated ? <Dashboard /> : <LoginPage />;
+// }
 
-  if (state.isLoading) {
-    return <p style={{ padding: 32 }}>Loading...</p>;
-  }
-
-  // This is the protected route — if not authenticated, show login
-  return state.isAuthenticated ? <Dashboard /> : <LoginPage />;
-}
-
-// AuthProvider must wrap AppContent — that's why they're separate
-// If AppContent was the root, it couldn't call useAuth() (no Provider above it yet)
 export default function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <>
+      {/* Day 3 demos — comment these out when done */}
+      <RefExamples />
+      <hr />
+      <HooksDemo />
+
+      {/* Day 2 auth app — uncomment when you want to test it */}
+      {/* <AuthProvider><AppContent /></AuthProvider> */}
+    </>
   );
 }
